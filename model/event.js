@@ -12,6 +12,9 @@ var EventSchema = new mongoose.Schema({
   eventTime: {
   	type: Date
   },
+  eventDesc: {
+    type: String
+  },
   eventUsers: {
   	type: Array
   }

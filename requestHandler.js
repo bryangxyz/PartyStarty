@@ -20,13 +20,15 @@ module.exports = {
       if (!user) {
         res.redirect('/');
       } else {
-        User.comparePassword(password, user.password, function(err, match) {
-          if (match) {
-            util.createSession(req, res, user);
-          } else {
-            res.redirect('/');
-          }
-        });
+
+        // bcrypt.compare(password, user.password,  function(err, match) {
+        if (password === user.password) {
+          util.createSession(req, res, user);
+        } else {
+          console.log('user or password wrong');
+          res.redirect('/');
+        }
+        // });
       }
     });
   },
@@ -49,7 +51,6 @@ module.exports = {
                   util.createSession(req, res, user);
                   console.log('session created');
                 });
-                res.redirect('/');
               }
           // });
         } else {
@@ -87,25 +88,41 @@ module.exports = {
   },
   // Create event
   addEvent: function(req, res) {
-    var eventTitle = req.body.eventTitle;
-    var eventLocation = req.body.eventLocation;
-    var eventTime = req.body.eventTime;
-    var eventUsers = req.body.user;
+    var eventTitle = req.body.title;
+    // var eventLocation = req.body.location;
+    var eventLocation = req.body.description;
+    var eventTime = req.body.time;
+    var eventUser = req.session.user.username;
+    console.log(eventUser);
+    console.log(req.body);
 
-    Event.findOne({eventTitle: eventTitle})
-      .exec(function(err, event) {
-        if(!event) {
-          Event.create({
+    Event.create({
             eventTitle: eventTitle,
             eventLocation: eventLocation,
             eventTime: eventTime,
-            eventUsers: [eventUsers]
-          })
-          res.redirect('/');
-        } else {
-          res.send('Event does not exisit');
-        }
-      });
+            eventUsers: [eventUser]
+          }).then(function() {
+            console.log('event created');
+            res.send('event created');
+          });
+    // Event.findOne({eventTitle: eventTitle})
+    //   .exec(function(err, event) {
+
+        // if(!event) {
+        //   console.log('no event');
+        //   Event.create({
+        //     eventTitle: eventTitle,
+        //     eventLocation: eventLocation,
+        //     eventTime: eventTime,
+        //     eventUsers: [eventUsers]
+        //   });
+        //   // console.log('event created');
+        //   // res.redirect('/');
+        //   res.send('event created');
+        // } else {
+        //   res.send('Event does not exisit');
+        // }
+      // });
   },
   // Add user to event
   updateEvent: function(req, res, next) {

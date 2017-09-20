@@ -13,8 +13,8 @@ const util = require('./lib/utility');
 
 const app = express();
 const compiler = webpack(webpackConfig);
- 
-app.use(express.static(__dirname + '/www'));
+
+app.use(['/', '/create'], express.static(__dirname + '/www'));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 // Parse forms (signup/login)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/src'));
+
 app.use(cookieParser());
 app.use(session({
   secret: 'secret',
@@ -44,6 +45,7 @@ const server = app.listen(3000, function() {
 });
 
 app.post('/signup', requestHandler.addUser);
+
 // app.get('/signup', function(req, res) {
 //   res.render('/');
 // })
@@ -53,6 +55,9 @@ app.get('/signin', function(req, res) {
   res.render('/');
 });
 
+app.get('/create', function(req, res) {
+  res.redirect('/');
+});
 app.post('/create', util.checkUser, requestHandler.addEvent);
 
 app.post('upvote', );
