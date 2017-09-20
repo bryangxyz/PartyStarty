@@ -20,15 +20,12 @@ module.exports = {
       if (!user) {
         res.redirect('/');
       } else {
-
-        // bcrypt.compare(password, user.password,  function(err, match) {
         if (password === user.password) {
           util.createSession(req, res, user);
         } else {
           console.log('user or password wrong');
           res.redirect('/');
         }
-        // });
       }
     });
   },
@@ -40,7 +37,6 @@ module.exports = {
     User.findOne({username: username})
       .exec(function(err, user) {
         if(!user) {
-          // bcrypt.hash(password, null, null, function(err, hash) {
               if (err) {
                 throw err;
               } else {
@@ -52,7 +48,6 @@ module.exports = {
                   console.log('session created');
                 });
               }
-          // });
         } else {
           console.log('Account already exists');
           res.redirect('/');
@@ -105,24 +100,6 @@ module.exports = {
             console.log('event created');
             res.send('event created');
           });
-    // Event.findOne({eventTitle: eventTitle})
-    //   .exec(function(err, event) {
-
-        // if(!event) {
-        //   console.log('no event');
-        //   Event.create({
-        //     eventTitle: eventTitle,
-        //     eventLocation: eventLocation,
-        //     eventTime: eventTime,
-        //     eventUsers: [eventUsers]
-        //   });
-        //   // console.log('event created');
-        //   // res.redirect('/');
-        //   res.send('event created');
-        // } else {
-        //   res.send('Event does not exisit');
-        // }
-      // });
   },
   // Add user to event
   updateEvent: function(req, res, next) {

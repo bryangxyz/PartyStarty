@@ -14,7 +14,7 @@ const util = require('./lib/utility');
 const app = express();
 const compiler = webpack(webpackConfig);
 
-app.use(['/', '/create'], express.static(__dirname + '/www'));
+app.use(express.static(__dirname + '/www'));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
@@ -29,7 +29,7 @@ app.use(partial());
 app.use(bodyParser.json());
 // Parse forms (signup/login)
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/src'));
+// app.use(express.static(__dirname + '/src'));
 
 app.use(cookieParser());
 app.use(session({
