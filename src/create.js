@@ -4,7 +4,7 @@ import Search from './search';
 import Navbar from './navbar';
 import {Link} from 'react-router-dom';
 import Home from './home'
-var axios = require('axios');
+import axios from ‘axios’;
 
 class Create extends React.Component {
 	constructor(props){
@@ -26,7 +26,7 @@ class Create extends React.Component {
 
 	handleSubmit(e){
 		axios.post('/create', {
-			title: this.state.title, 
+			title: this.state.title,
 			location: this.state.location,
 			date: this.state.date,
 			time: this.state.time,
@@ -97,4 +97,4 @@ class Create extends React.Component {
 	}
 }
 
-export default Create; 
+export default Create;
