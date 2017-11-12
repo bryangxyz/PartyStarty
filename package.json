@@ -1,0 +1,52 @@
+{
+  "name": "PartyStarty",
+  "version": "1.0.0",
+  "description": "Our Greenfield project",
+  "main": "main.js",
+  "scripts": {
+    "compile": "webpack --watch",
+    "start": "node server.js webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skzheng/PartyStarty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skzheng/PartyStarty/issues"
+  },
+  "homepage": "https://github.com/skzheng/PartyStarty#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bcrypt": "^1.0.3",
+    "bloodhound-js": "^1.2.2",
+    "body-parser": "^1.18.1",
+    "bootstrap": "^4.0.0-beta",
+    "cookie-parser": "^1.4.3",
+    "crypto": "*",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "express-partial": "^0.1.0",
+    "express-session": "^1.15.5",
+    "history": "^4.7.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.11.12",
+    "path": "^0.12.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "request": "^2.82.0",
+    "typeahead": "^0.2.2",
+    "typeahead.js": "^0.11.1",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0"
+  }
+}
