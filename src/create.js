@@ -4,7 +4,7 @@ import Search from './search';
 import Navbar from './navbar';
 import {Link} from 'react-router-dom';
 import Home from './home'
-import axios from ‘axios’;
+import axios from 'axios';
 
 class Create extends React.Component {
 	constructor(props){
