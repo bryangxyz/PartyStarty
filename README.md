@@ -36,7 +36,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Configuration
 
-You will need several API Keys to run your own build of apply(Me). We use the NPM package [dotenv](https://github.com/motdotla/dotenv) for our local environment variables. You should make a .env file, placed in your clone's root directory, that looks like this:
+You will need several API Keys to run your own build of PartyStarty. We use the NPM package [dotenv](https://github.com/motdotla/dotenv) for our local environment variables. You should make a .env file, placed in your clone's root directory, that looks like this:
 
 ```
 MOVIEDB_KEY=(The Movie Database API Key) // Available from [The Movie Database](https://developers.themoviedb.org/3/getting-started)
