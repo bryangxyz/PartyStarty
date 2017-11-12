@@ -45,7 +45,7 @@ MOVIEDB_KEY=(The Movie Database API Key) // Available from [The Movie Database](
 ## Usage
 
 ![Splash](https://github.com/bryangxyz/PartyStarty/blob/dev/www/createevent.png)
-![Splash](https://github.com/bryangxyz/PartyStarty/blob/dev/www/searchmovie.png)
+![Splash](https://github.com/bryangxyz/PartyStarty/blob/dev/www/moviesearch.png)
 
 ### Login
 
